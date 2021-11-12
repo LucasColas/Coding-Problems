@@ -57,15 +57,26 @@ public:
         
         while (lbi >= 0) {
             if (qtity == "1" && lb[lbi] == "1") {
-                sum = "0" + sum;
+                ans = "0" + ans;
             } 
-            else if (qtity == "1" || lb[lbi] == "1") {
-                sum = "1" + sum;
+            else if (lb[lbi] == "1") {
+                if (qtity == "1") {
+                    ans = "0" + ans;
+                }
+                
             }
             
             else {
-                sum = lb[lbi]+sum;
+                if (qtity == "1") {
+                    ans = "1" + ans;
+                    qtity == "0";
+                }
+                
+                else {
+                    ans = lb[lbi] + ans;
+                }
             }
+            
             
             lbi--;            
         }     
