@@ -1,45 +1,47 @@
 //Given two binary strings a and b, return their sum as a binary string.
-
 class Solution {
 public:
     string addBinary(string a, string b) {
-        int i = a.length();
-        int j = b.length();
+        int i = a.length()-1;
+        int j = b.length()-1;
         string ans = "";
-        string qtity = "0";
+        char qtity = '0';
         int lbi = -1;
         string lb = "";
         
         
         while ((i >= 0 ) && (j >= 0)) {
-            if (a[i] == "0" && b[j] == "0") {
-                ans = "0" + ans;
+            if (a[i] == '0' && b[j] == '0') {
+                ans = ans + '0';
                 
             }
             
-            else if (a[i] == "1" && b[i] == "1") {
-                if (qtity == "1") {
-                    ans = "1" + ans;
+            else if (a[i] == '1' && b[i] == '1') {
+                if (qtity == '1') {
+                    ans = ans + '1';
                 }
                 
                 else {
-                    qtity = "1";
-                    ans = "0" + ans;
+                    qtity = '1';
+                    ans = ans + '0';
                 }
             }
             
-            else if (a[i] == "1" || b[j] == "1") {
-                if (qtity == "1") {
-                    ans = "0" + ans;
-                    qtity = "1";
+            else if (a[i] == '1' || b[j] == '1') {
+                if (qtity == '1') {
+                    ans = ans + '0';
+                    qtity = '1';
                     
                 }
                 
                 else {
-                   qtity = "0";
-                    ans = "1" + ans;
+                    qtity = '1';
+                    ans = ans + '1';     
+                }
+                    
                 
             }
+                
             i--;
             j--;       
             
@@ -56,29 +58,35 @@ public:
         }
         
         while (lbi >= 0) {
-            if (qtity == "1" && lb[lbi] == "1") {
-                ans = "0" + ans;
-            } 
-            else if (lb[lbi] == "1") {
-                if (qtity == "1") {
-                    ans = "0" + ans;
+            if (qtity == '1' && lb[lbi] == '1') {
+                ans = ans + '0';
+            }
+            
+            else if (lb[lbi] == '1') {
+                if (qtity == '1') {
+                    ans = + ans + '0';
+                }
+                
+                else {
+                    ans = ans + '1';
                 }
                 
             }
             
             else {
-                if (qtity == "1") {
-                    ans = "1" + ans;
-                    qtity == "0";
+                if (qtity == '1') {
+                    ans = ans + '1';
+                    qtity == '0';
                 }
                 
                 else {
                     ans = lb[lbi] + ans;
                 }
             }
-            
-            
+                    
             lbi--;            
-        }     
+        }
+            
+        return ans;
     }
 };
