@@ -17,15 +17,28 @@ public:
                 
             }
             
-            else if (a[i] == "1"&& b[i] == "1") {
+            else if (a[i] == "1" && b[i] == "1") {
                 if (qtity == "1") {
                     ans = "1" + ans;
                 }
                 
                 else {
-                   qtity = "1";
+                    qtity = "1";
                     ans = "0" + ans;
                 }
+            }
+            
+            else if (a[i] == "1" || b[j] == "1") {
+                if (qtity == "1") {
+                    ans = "0" + ans;
+                    qtity = "1";
+                    
+                }
+                
+                else {
+                   qtity = "0";
+                    ans = "1" + ans;
+                
             }
             i--;
             j--;       
@@ -34,8 +47,9 @@ public:
         
         if (j >= 0) {
             lbi = j;
-            lb = b.substr(0,j+1); //first index and then the length
+            lb = b.substr(0,j+1); //first :  index and then the length
         }
+        
         else if (i >= 0) {
             lbi = i;
             lb = a.substr(0, i+1);
@@ -53,9 +67,7 @@ public:
                 sum = lb[lbi]+sum;
             }
             
-            lbi--;
-            
-        }
-        
+            lbi--;            
+        }     
     }
 };
