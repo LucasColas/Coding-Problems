@@ -6,8 +6,6 @@ public:
         int j = b.length()-1;
         string ans = "";
         char qtity = '0';
-        int lbi = -1;
-        string lb = "";
         
         
         while (i >= 0 && j >= 0) {
