@@ -10,33 +10,42 @@ public:
         string lb = "";
         
         
-        while ((i >= 0 ) && (j >= 0)) {
-            if (a[i] == '0' && b[j] == '0') {
-                ans = ans + '0';
-                
+        while (i >= 0 && j >= 0) {
+            //std:: cout << a[i];
+            //std:: cout << b[j];
+            if (a[i] == '1' && b[j] == '1') {
+                if (qtity == '0') {
+                    ans = ans + '0';
+                    qtity = '1';
+                } 
+                else {
+                    ans += '1';
+                    qtity = '1';
+                }    
             }
             
-            else if (a[i] == '1' && b[i] == '1') {
-                if (qtity == '1') {
-                    ans = ans + '1';
+            else if (a[i] == '0' && b[i] == '0') {
+                if (qtity == '0') {
+                    ans = ans + '0';
+                    qtity = '0';
                 }
                 
                 else {
-                    qtity = '1';
-                    ans = ans + '0';
+                    qtity = '0';
+                    ans = ans + '1';
                 }
             }
             
-            else if (a[i] == '1' || b[j] == '1') {
-                if (qtity == '1') {
-                    ans = ans + '0';
-                    qtity = '1';
+            else {
+                if (qtity == '0') {
+                    ans = ans + '1';
+                    qtity = '0';
                     
                 }
                 
                 else {
                     qtity = '1';
-                    ans = ans + '1';     
+                    ans = ans + '0';     
                 }
                     
                 
@@ -47,45 +56,63 @@ public:
             
         }
         
-        if (j >= 0) {
-            lbi = j;
-            lb = b.substr(0,j+1); //first :  index and then the length
-        }
-        
-        else if (i >= 0) {
-            lbi = i;
-            lb = a.substr(0, i+1);
-        }
-        
-        while (lbi >= 0) {
-            if (qtity == '1' && lb[lbi] == '1') {
-                ans = ans + '0';
+        while (i >= 0) {
+            if (a[i] == '1' && qtity == '0') {
+                ans = ans + '1';
+                qtity = '0';
             }
             
-            else if (lb[lbi] == '1') {
-                if (qtity == '1') {
-                    ans = + ans + '0';
-                }
-                
-                else {
-                    ans = ans + '1';
-                }
+            else if (a[i] == '1' && qtity == '1') {
+                ans += '0';
+                qtity = '1';
                 
             }
             
-            else {
-                if (qtity == '1') {
-                    ans = ans + '1';
-                    qtity == '0';
-                }
-                
-                else {
-                    ans = lb[lbi] + ans;
-                }
+            else if (a[i] == '0' && qtity == '0') {
+                ans += '0';
+                qtity = '0';
             }
-                    
-            lbi--;            
+            
+            else if (a[i] == '0' && qtity == '1') {
+                ans += '1';
+                qtity = '0';
+            }
+            
+            i--;
+                        
         }
+        
+        while (j >= 0) {
+            if (b[j] == '1' && qtity == '0') {
+                ans = ans + '1';
+                qtity = '0';
+            }
+            
+            else if (b[j] == '1' && qtity == '1') {
+                ans += '0';
+                qtity = '1';
+                
+            }
+            
+            else if (b[j] == '0' && qtity == '0') {
+                ans += '0';
+                qtity = '0';
+            }
+            
+            else if (b[j] == '0' && qtity == '1') {
+                ans += '1';
+                qtity = '0';
+            }
+            
+            j--;
+                        
+        }
+        
+        if (qtity == '1') {
+            ans += '1';
+        }
+        
+        reverse(ans.begin(), ans.end());
             
         return ans;
     }
