@@ -22,7 +22,7 @@ public:
                 }    
             }
             
-            else if (a[i] == '0' && b[i] == '0') {
+            else if (a[i] == '0' && b[j] == '0') {
                 if (qtity == '0') {
                     ans = ans + '0';
                     qtity = '0';
