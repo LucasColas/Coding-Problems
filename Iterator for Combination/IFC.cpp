@@ -13,7 +13,7 @@ public:
     
     vector generate() {
         vector<string> comb;
-        for (int i = 0; i < 2**characters.size(); i++) {
+        for (int i = 0; i < pow(characters.size(),2); i++) {
             string str = "";
             for (int j = 0; j < characters.size(); j++) {
                 if ((1<<j) & i > 0) {
