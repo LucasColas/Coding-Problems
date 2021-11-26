@@ -3,7 +3,6 @@ public:
     string characters;
     int combinationLength;
     vector<string> every_comb;
-    int combinationLenght;
     
     CombinationIterator(string characters, int combinationLength) {
         characters = characters;
