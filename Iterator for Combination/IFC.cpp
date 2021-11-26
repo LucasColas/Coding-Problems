@@ -38,7 +38,7 @@ public:
     }
     
     bool hasNext() {
-        if next() {
+        if every_comb.size() >= 1 {
             return true;
         }
         
