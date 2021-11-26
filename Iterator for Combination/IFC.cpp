@@ -29,11 +29,11 @@ public:
     }
     
     string next() {
-        for (int w = 0; w < every_comb.size(); w++) {
-            string new_str = every_comb[w];
-            every_comb.erase(w);
-            return new_str
-        }
+        string new_str = every_comb[w];
+        //std::cout << w;
+        every_comb.erase(every_comb.begin());
+        return new_str;
+        
         
     }
     
