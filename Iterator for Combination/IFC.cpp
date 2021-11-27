@@ -4,41 +4,59 @@ public:
     int combinationLength;
     vector<string> every_comb;
     
+    
+    
     CombinationIterator(string characters, int combinationLength) {
         characters = characters;
+        std::cout << characters;
         combinationLength = combinationLength;
         every_comb = generate();
+        std::cout << every_comb.size();
+        
         
     }
     
-    vector generate() {
+    vector<string> generate() {
         vector<string> comb;
-        for (int i = 0; i < pow(characters.size(),2); i++) {
+        std::cout << characters;
+        int itr = pow(characters.size(),2);
+        std::cout << itr;
+        for (int i = 0; i < itr; i++) {
             string str = "";
+            
             for (int j = 0; j < characters.size(); j++) {
-                if ((1<<j) & i > 0) {
+                std::cout << ((1<<j) & i>0);
+                if ((1<<j) & i>0) {
                     str += characters[j];
+                }
                 
             }
                 
-            if str.size() == combinationLength {
+            if (str.size() == combinationLength) {
                 comb.push_back(str);
             }
-            
+             
         }
+        return comb;
     }
     
+    
     string next() {
-        string new_str = every_comb[w];
-        //std::cout << w;
-        every_comb.erase(every_comb.begin());
-        return new_str;
+        
+        if (every_comb.size() >= 1) {
+            string new_str = every_comb[0];
+            //std::cout << w;
+            every_comb.erase(every_comb.begin());
+            return new_str;
+        }
+        
+        return "";
         
         
     }
     
     bool hasNext() {
-        if every_comb.size() >= 1 {
+        if (every_comb.size() >= 1) {
             return true;
         }
         
