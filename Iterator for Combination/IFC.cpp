@@ -1,42 +1,46 @@
 class CombinationIterator {
 public:
-    string characters;
-    int combinationLength;
+    string characters_;
+    int combinationLength_;
     vector<string> every_comb;
     
     
     
     CombinationIterator(string characters, int combinationLength) {
-        characters = characters;
-        std::cout << characters;
-        combinationLength = combinationLength;
+        characters_ = characters;
+        std::cout << characters_;
+        combinationLength_ = combinationLength;
         every_comb = generate();
-        std::cout << every_comb.size();
+        //std::cout << every_comb.size();
         
         
     }
     
     vector<string> generate() {
         vector<string> comb;
-        std::cout << characters;
-        int itr = pow(characters.size(),2);
+        //std::cout << characters;
+        int itr = pow(characters_.size(),2);
         std::cout << itr;
         for (int i = 0; i < itr; i++) {
             string str = "";
             
-            for (int j = 0; j < characters.size(); j++) {
-                std::cout << ((1<<j) & i>0);
-                if ((1<<j) & i>0) {
-                    str += characters[j];
+            for (int j = 0; j < characters_.size(); j++) {
+                //std::cout << ((1<<j) & i>0);
+                //std::cout << (i & (1<<j));
+                if (i & (1<<j)) {
+                    //std::cout << characters_[j];
+                    str += characters_[j];
                 }
                 
             }
+            std::cout << "size : " << str.size() << "\n";
                 
-            if (str.size() == combinationLength) {
+            if (str.size() == combinationLength_) {
                 comb.push_back(str);
             }
              
         }
+        std::cout << comb.size();
         return comb;
     }
     
