@@ -76,11 +76,11 @@ class CombinationIterator {
 
 int main() {
   std::cout << "Hello World \n";
-  CombinationIterator Itr("abc", 2);
+  CombinationIterator Itr("fikluny ", 3);
   std::vector<std::string> words = Itr.every_comb;
 
   for (int i = 0; i < words.size(); i++) {
-    std::cout << words[i];
+    std::cout << words[i] << endl;
 
   }
   return 0;
