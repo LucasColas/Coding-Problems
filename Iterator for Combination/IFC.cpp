@@ -77,6 +77,9 @@ public:
 int main() {
   std::cout << "Hello World";
   cIt = CombinationIterator();
+  std::vector<std::string> 
+
+  return 0
 }
 
 /**
