@@ -80,7 +80,7 @@ int main() {
   std::vector<std::string> words = Itr.every_comb;
 
   for (int i = 0; i < words.size(); i++) {
-    std::cout << words[i] << endl;
+    std::cout << words[i] << std::endl;
 
   }
   return 0;
