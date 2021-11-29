@@ -4,7 +4,7 @@
 #include <algorithm>
 
 class CombinationIterator {
-public:
+  public:
     std::string characters_;
     int combinationLength_;
     std::vector<std::string> every_comb;
