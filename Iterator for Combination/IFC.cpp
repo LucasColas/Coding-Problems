@@ -1,12 +1,15 @@
 #include <iostream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
 
 class CombinationIterator {
 public:
     std::string characters_;
     int combinationLength_;
-    std::vector<string> every_comb;
+    std::vector<std::string> every_comb;
 
-    CombinationIterator(string characters, int combinationLength) {
+    CombinationIterator(std::string characters, int combinationLength) {
         characters_ = characters;
         //std::cout << characters_;
         combinationLength_ = combinationLength;
@@ -16,13 +19,13 @@ public:
 
     }
 
-    vector<string> generate() {
-        std::vector<string> comb;
+    std::vector<std::string> generate() {
+        std::vector<std::string> comb;
         //std::cout << characters;
-        int itr = pow(characters_.size(),2);
+        int itr = std::pow(characters_.size(),2);
         //std::cout << itr;
         for (int i = 0; i < itr; i++) {
-            string str = "";
+            std::string str = "";
 
             for (int j = 0; j < characters_.size(); j++) {
                 //std::cout << ((1<<j) & i>0);
@@ -46,10 +49,10 @@ public:
     }
 
 
-    string next() {
+    std::string next() {
 
         if (every_comb.size() >= 1) {
-            string new_str = every_comb[0];
+            std::string new_str = every_comb[0];
             //std::cout << w;
             every_comb.erase(every_comb.begin());
             return new_str;
@@ -69,6 +72,12 @@ public:
 
     }
 };
+
+
+int main() {
+  std::cout << "Hello World";
+  cIt = CombinationIterator();
+}
 
 /**
  * Your CombinationIterator object will be instantiated and called as such:
