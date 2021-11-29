@@ -76,10 +76,13 @@ public:
 
 int main() {
   std::cout << "Hello World";
-  cIt = CombinationIterator();
-  std::vector<std::string> 
+  CombinationIterator Itr;
+  std::vector<std::string> words = Itr.every_comb;
 
-  return 0
+  for (int i = 0; i < words.size(); i++) {
+    std::cout << words[i];
+  }
+  return 0;
 }
 
 /**
