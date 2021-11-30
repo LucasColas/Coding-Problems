@@ -30,7 +30,7 @@ class CombinationIterator {
             for (int j = 0; j < characters_.size(); j++) {
                 //std::cout << ((1<<j) & i>0);
                 //std::cout << (i & (1<<j));
-                if ((1<<j) & 1) {
+                if ((1<<j) & i) {
                     //std::cout << characters_[j];
                     str += characters_[j];
                 }
