@@ -30,14 +30,14 @@ class CombinationIterator {
             for (int j = 0; j < characters_.size(); j++) {
                 //std::cout << ((1<<j) & i>0);
                 //std::cout << (i & (1<<j));
-                if (i & (1<<j) != 0) { //added != 0
+                if ((1<<j) & 1) {
                     //std::cout << characters_[j];
                     str += characters_[j];
                 }
 
             }
             //std::cout << "size : " << str.size() << "\n";
-
+            std::cout << str << std::endl;
             if (str.size() == combinationLength_) {
                 comb.push_back(str);
             }
@@ -78,7 +78,7 @@ int main() {
   std::cout << "Hello World \n";
   CombinationIterator Itr("fikluny", 3);
   std::vector<std::string> words = Itr.every_comb;
-
+  std::cout << "Every words collected";
   for (int i = 0; i < words.size(); i++) {
     std::cout << words[i] << std::endl;
 
