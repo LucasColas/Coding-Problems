@@ -26,9 +26,8 @@ class CombinationIterator {
         //std::cout << itr;
         for (int i = 0; i < itr; i++) {
             std::string str = "";
-
             for (int j = 0; j < characters_.size(); j++) {
-                
+
                 if ((i & (1<<j)) != 0) {
                     //std::cout << characters_[j];
                     str += characters_[j];
