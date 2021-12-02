@@ -36,6 +36,7 @@ class CombinationIterator {
               num >>= 1;
 
             }
+            std::cout << "word : " << str << std::endl;
             //std::cout << "size : " << str.size() << "\n";
 
             if (str.size() == combinationLength_) {
