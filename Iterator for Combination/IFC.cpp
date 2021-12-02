@@ -26,12 +26,14 @@ class CombinationIterator {
         //std::cout << itr;
         for (int i = 0; i < itr; i++) {
             std::string str = "";
-            for (int j = 0; j < characters_.size(); j++) {
-
-                if ((i & (1<<j)) != 0) {
-                    //std::cout << characters_[j];
-                    str += characters_[j];
-                }
+            int num = i;
+            int j = 0;
+            while (num) {
+              if (num&1) {
+                str.push_back(characters_[j]);
+              }
+              j++;
+              num >>= 1;
 
             }
             //std::cout << "size : " << str.size() << "\n";
