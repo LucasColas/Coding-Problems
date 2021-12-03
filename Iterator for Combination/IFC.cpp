@@ -29,7 +29,11 @@ class CombinationIterator {
             int n = characters_.length();
 
             for (int j = 0; j < n; j++) {
-              if (i & (1<<j)){
+              std::cout << "Shift : " << (1<<j) << " Check : " << (i & (1<<j)) << " letter : " << characters_[j] << std::endl;
+
+              if (i & (1<<j)) {
+
+
                 str.push_back(characters_[j]);
               }
             }
