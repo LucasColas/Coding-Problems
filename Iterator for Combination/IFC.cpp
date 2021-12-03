@@ -29,11 +29,11 @@ class CombinationIterator {
             int n = characters_.length();
 
             for (int j = 0; j < n; j++) {
-              if ((i & ( 1 << j)) > 0) {
+              if (i & (1<<j)){
                 str.push_back(characters_[j]);
               }
             }
-            
+
             std::cout << "word : " << str << std::endl;
             //std::cout << "size : " << str.size() << "\n";
 
