@@ -22,7 +22,7 @@ class CombinationIterator {
     std::vector<std::string> generate() {
         std::vector<std::string> comb;
         //std::cout << characters;
-        int itr = std::pow(characters_.size(),2);
+        int itr = std::pow(2,characters_.size());
         //std::cout << itr;
         for (int i = 0; i < itr; i++) {
             std::string str = "";
