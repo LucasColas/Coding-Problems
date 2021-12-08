@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
-#include <cmath>
+//#include <vector>
+//#include <cmath>
 //#include <algorithm>
 
 
@@ -26,3 +26,10 @@ private:
   }
 
 };
+
+
+
+int maint() {
+  S = Solution()
+  S.uniquePaths();
+}
