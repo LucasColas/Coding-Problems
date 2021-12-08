@@ -29,9 +29,10 @@ private:
 
 
 
-int maint() {
-  S = Solution()
-  int Sol = S.uniquePaths();
+int main() {
+  Solution S;
+  int Sol = S.uniquePaths(3,7);
+  std::cout << "Hello";
   std::cout << Sol;
   return 0;
 }
