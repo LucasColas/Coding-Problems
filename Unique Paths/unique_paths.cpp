@@ -17,13 +17,16 @@ private:
     for (int i = 0; i < m; i++) {
       std::cout << "inside for " << std::endl;
       for (int j = 0; i < n; j++) {
-        std::cout << "inside nested for " << std::endl;
-        if (i == 0 || j == 0) {
+        //std::cout << "inside nested for " << std::endl;
+        if ((i == 0 ) || (j == 0)) {
+          //std::cout << "i = 0 or j = 0" << std::endl;
           mat[i][j] = 1;
         } else {
+          std::cout << "else" << std::endl;
           mat[i][j] = mat[i-1][j] + mat[i][j-1];
         }
       }
+      std::cout << "Finished nested loop";
     }
     std::cout << "I am going to return" << std::endl;
 
