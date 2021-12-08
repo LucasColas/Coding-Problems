@@ -7,7 +7,7 @@
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-      return findPaths(m, n)
+      return findPaths(m, n);
     }
 private:
   int findPaths(int m, int n) {
@@ -31,5 +31,7 @@ private:
 
 int maint() {
   S = Solution()
-  S.uniquePaths();
+  int Sol = S.uniquePaths();
+  std::cout << Sol;
+  return 0;
 }
