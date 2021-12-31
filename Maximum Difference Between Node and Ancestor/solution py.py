@@ -13,36 +13,22 @@ From Leetcode : https://leetcode.com/problems/maximum-difference-between-node-an
 #         self.right = right
 class Solution:
     def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
-        maxL_ = self.findMax(root.left, root.val)
-        print(maxL_)
-        minL_ = self.findMin(root.left, root.val)
-        print(minL_)
+        if not root:
+            return 0
         
-    def findMax(self, Tree,max_):
+        return self.findMinMax(root, root.val, root.val)
         
+    def findMinMax(self, node, max_, min_):
+        if not node:
+            return max_ - min_
         
-        if Tree.val >= max_:
-            max_ = Tree.val
-            
-        if Tree.right == None:
-            return max_
-            
-        if Tree.right:
-            return self.findMax(Tree.right, max_)
+        max_ = max(max_, node.val)
+        min_ = min(min_, node.val)
         
-    def findMin(self, Tree, min_):
-        #print(Tree.val, Tree.left)
-        if Tree.val <= min_:
-            min_ = Tree.val
-        
-        #print(Tree.left == None)
-        if Tree.left == None:
-            return min_
-            
-        if Tree.left:
-            #print("in Tree left")
-            return self.findMin(Tree.left, min_)
-        
+        left = self.findMinMax(node.left, max_, min_)
+        right = self.findMinMax(node.right, max_, min_)
+        return max(left, right)
+
         
         
         
