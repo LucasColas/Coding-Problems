@@ -12,31 +12,63 @@ From Leetcode : https://leetcode.com/problems/word-pattern/
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
-        map<char, string> Word_Pattern;
-        string Word = "";
+        int i = 0;
+        string word = "";
         int j = 0;
-        for (int i = 0; i < s.length(); i++) {
+        //cout << s.length() << endl;
+        map<char,string> word_map;
+        while (i < s.length()) {
             
             if (s[i] != ' ') {
-                Word += s[i];
+                word += s[i];
+                cout << "in if " << word << endl;
             }
             
-            else {
-                if (Word_Pattern.count(pattern[j]) > 0) {
-                    if (Word_Pattern[pattern[j]] != Word) {
+            
+            
+            if (i == (s.length()-1)) {
+                //cout << "in else if" << word << endl;
+                if (word_map.count(pattern[j]) > 0) {
+                    if (word_map[pattern[j]] != word) {
                         return false;
+                    }
+                    else {
+                        word = "";
+                        j++;
                     }
                 }
                 
                 else {
-                    Word_Pattern[pattern[j]] = Word;
-                    Word = "";
-                    if (j < pattern.length()) {
+                    word_map[pattern[j]] = word;
+                    word = "";
+                    j++;
+                    
+                }
+            }
+            
+            else {
+                //cout << "in else " << word << endl;
+                if (word_map.count(pattern[j]) > 0) {
+                    if (word_map[pattern[j]] != word) {
+                        return false;
+                    }
+                    else {
+                        word = "";
                         j++;
                     }
                 }
-               
+                else {
+                    word_map[pattern[j]] = word;
+                    word = "";
+                    j++;
+                    
+                }
+                
+                
             }
+            //cout << " i value " << i << endl;
+            i++;
+            
         }
         
         return true;
