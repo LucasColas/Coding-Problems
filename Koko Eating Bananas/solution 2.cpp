@@ -4,7 +4,6 @@ public:
     int minEatingSpeed(vector<int>& piles, int h) {    
         
         int speed = 1;
-        bool not_found = true;
         
         while (true) {
            
