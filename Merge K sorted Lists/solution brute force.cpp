@@ -20,25 +20,25 @@ From Leetcode : https://leetcode.com/problems/merge-k-sorted-lists/
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        vector<int>temp;
+        vector<int>list;
         for(int i=0; i<lists.size(); i++){
            while(lists[i] != NULL){
-               temp.push_back(lists[i]->val);
+               list.push_back(lists[i]->val);
                lists[i]=lists[i]->next;
            }
         }
         
-        sort(temp.begin(), temp.end());
+        sort(list.begin(), list.end());
         
         ListNode* ans= new ListNode(0);
-        ListNode* res=ans;
+        ListNode* result=ans;
         
-        for(int i=0; i<temp.size(); i++){
+        for(int i=0; i<list.size(); i++){
             
-            ans->next=new ListNode(temp[i]);
+            ans->next=new ListNode(list[i]);
             ans=ans->next;
         }
         
-        return res->next;
+        return result->next;
     }
 };
