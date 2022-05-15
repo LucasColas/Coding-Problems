@@ -40,7 +40,7 @@ int goDeepest(struct TreeNode* root, int h, int h_max) {
 
 int height(struct TreeNode* root) {
     if (root == NULL) {
-        return 0;
+        return -1;
     }
     
     int left = height(root->left);
